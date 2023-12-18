@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Youtube Tool",
+    "description": "Extension to skip Youtube ads.",
+    "version": "1.0",
+    "content_scripts": [
+      {
+        "js": [
+          "content_script.js"
+        ],
+        "matches": [
+          "https://www.youtube.com/*"
+        ]
+      }
+    ],
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "action": {
+        "default_title": "Youtube Tool",
+        "default_icon": {
+            "16": "logo.png",
+            "32": "logo.png",
+            "48": "logo.png",
+            "128": "logo.png"
+        }
+    },
+    "icons": {
+        "16": "logo.png",
+        "32": "logo.png",
+        "48": "logo.png",
+        "128": "logo.png"
+    }
+  }
