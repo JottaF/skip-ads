@@ -43,7 +43,9 @@ function init() {
 
     const config = { attributes: true, childList: true, subtree: true }
 
-    observer.observe(AdDiv, config)
+    try {
+        observer.observe(AdDiv, config)
+    } catch {}
 }
 
 if (document.readyState == "loading") document.addEventListener('DOMContentLoaded', init)
