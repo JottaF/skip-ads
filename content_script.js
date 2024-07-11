@@ -34,20 +34,19 @@ function verifyChange() {
   return document.URL.includes("watch?");
 }
 
-function findAdDiv(maxR = 50) {
-  const div = document.querySelector(".video-ads.ytp-ad-module");
+async function findAdDiv(maxR = 50) {
+  let div = document.querySelector(".video-ads.ytp-ad-module");
 
   if (!div && maxR > 0) {
-    setTimeout(() => {
-      return findAdDiv(maxR - 1);
-    }, 150);
+    await new Promise(resolve => setTimeout(resolve, 250));
+    return findAdDiv(maxR - 1);
   }
 
   return div;
 }
 
-function init() {
-  const AdDiv = findAdDiv();
+async function init() {
+  const AdDiv = await findAdDiv();
 
   const observer = new MutationObserver(() => {
     if (verifyChange()) {
