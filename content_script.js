@@ -14,8 +14,8 @@ function findButtonToSkip(maxR = 30) {
 
 function goToTheFinal() {
   const ad = document.querySelector(".video-stream.html5-main-video");
-  ad.playbackRate += 15;
   ad.muted = true;
+  ad.playbackRate += 15;
   ad.currentTime = ad.duration;
 }
 
