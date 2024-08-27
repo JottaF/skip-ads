@@ -12,6 +12,13 @@ function findButtonToSkip(maxR = 30) {
   return button;
 }
 
+function goToTheFinal() {
+  const ad = document.querySelector(".video-stream.html5-main-video");
+  ad.playbackRate += 15;
+  ad.muted = true;
+  ad.currentTime = ad.duration;
+}
+
 function isAdWithoutButton() {
   try {
     const adText = document.querySelector(".ytp-preview-ad__text");
@@ -56,9 +63,13 @@ function init() {
       } else {
         const button = findButtonToSkip(20);
 
-        try {
-          button.click();
-        } catch {}
+        if (button) {
+          try {
+            goToTheFinal();
+          } catch (err) {
+            console.log("Skip ads - error:", err);
+          }
+        }
       }
     }
   });
